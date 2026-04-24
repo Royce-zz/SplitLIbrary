@@ -100,9 +100,7 @@ def test_add_expense_mismatched_splits() -> None:
     storage.add_group("g", "G", ["alice", "bob"])
 
     # act and assert
-    with pytest.raises(
-        ValueError, match="splits sum to 30.00, expected 40.00"
-    ):
+    with pytest.raises(ValueError, match="splits sum to 30.00, expected 40.00"):
         storage.add_expense(
             group_id="g",
             description="Oops",

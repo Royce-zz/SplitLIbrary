@@ -33,9 +33,7 @@ def _distribute_remainder(
     return adjusted
 
 
-def equal_split(
-    amount: Decimal, participants: list[str]
-) -> dict[str, Decimal]:
+def equal_split(amount: Decimal, participants: list[str]) -> dict[str, Decimal]:
     """Split amount equally across participants."""
     if not participants:
         raise ValueError("participants must not be empty")
@@ -47,9 +45,7 @@ def equal_split(
     return _distribute_remainder(amounts, amount, participants)
 
 
-def shares_split(
-    amount: Decimal, shares: dict[str, int]
-) -> dict[str, Decimal]:
+def shares_split(amount: Decimal, shares: dict[str, int]) -> dict[str, Decimal]:
     """Split amount by integer shares."""
     if not shares:
         raise ValueError("shares must not be empty")

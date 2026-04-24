@@ -33,7 +33,7 @@ def test_simplify_debts_three_users_one_creditor() -> None:
     # act
     settlements = simplify_debts(balances)
 
-    # assert: alice is paid twice; order depends on dict iteration.
+    # assert:
     assert len(settlements) == 2
     assert Settlement("bob", "alice", Decimal("30")) in settlements
     assert Settlement("carol", "alice", Decimal("30")) in settlements
@@ -41,7 +41,7 @@ def test_simplify_debts_three_users_one_creditor() -> None:
 
 def test_simplify_debts_three_users_chain() -> None:
     """Test simplify_debts when amounts do not match evenly."""
-    # arrange: alice is owed 50, bob owes 20, carol owes 30.
+    # arrange:
     balances = {
         "alice": Decimal("50"),
         "bob": Decimal("-20"),
@@ -59,7 +59,7 @@ def test_simplify_debts_three_users_chain() -> None:
 
 def test_simplify_debts_five_users() -> None:
     """Test simplify_debts on a five-user ledger with mixed positions."""
-    # arrange: two creditors, three debtors. Sum is zero.
+    # arrange:
     balances = {
         "alice": Decimal("80"),
         "bob": Decimal("40"),
@@ -71,7 +71,7 @@ def test_simplify_debts_five_users() -> None:
     # act
     settlements = simplify_debts(balances)
 
-    # assert: 3 settlements -- dave->alice(50), eve->bob(40), carol->alice(30)
+    # assert:
     assert len(settlements) == 3
     assert Settlement("dave", "alice", Decimal("50")) in settlements
     assert Settlement("eve", "bob", Decimal("40")) in settlements

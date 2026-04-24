@@ -17,9 +17,7 @@ class User:
         """Return whether two User objects are equal."""
         if not isinstance(other, User):
             return NotImplemented
-        return (
-            self.user_id == other.user_id and self.full_name == other.full_name
-        )
+        return self.user_id == other.user_id and self.full_name == other.full_name
 
     def __hash__(self) -> int:
         """Return the hash of the user id."""
